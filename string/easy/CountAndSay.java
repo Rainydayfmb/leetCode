@@ -9,18 +9,19 @@ package easy;
 public class CountAndSay {
 
     public static void main(String[] args) {
-        System.out.println(countAndSay(5));
+        System.out.println(countAndSay(4));
     }
 
     public static String countAndSay(int n) {
         StringBuilder curr = new StringBuilder("1");
         StringBuilder pre;
-        int count = 1;
+        int count;
         char say;
         for (int i = 1; i < n; i++) {
             pre = curr;
             curr = new StringBuilder();
             say = pre.charAt(0);
+            count = 1;
             for(int j = 1;j<pre.length();j++){
                 if(pre.charAt(j)!=say){
                     curr.append(count).append(say);
@@ -30,7 +31,7 @@ public class CountAndSay {
                     count++;
                 }
             }
-            curr.append(say).append(count);
+            curr.append(count).append(say);
         }
         return curr.toString();
     }
